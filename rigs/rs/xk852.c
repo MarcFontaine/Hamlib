@@ -227,6 +227,13 @@ xk852_set_mode(RIG *rig, vfo_t vfo, rmode_t mode, pbwidth_t width)
         smode = XK852_MODE_FSK_HP;
         break;
 
+    // For testing map both ISBUSB and ISBLSB to ISB.
+    // TODO: check what XK852_MODE_ISB means.
+    case RIG_MODE_ISBUSB:
+    case RIG_MODE_ISBLSB:
+        smode = XK852_MODE_ISB;
+        break;
+
     default:
         return -RIG_EINVAL;
     }
