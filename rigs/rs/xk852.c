@@ -223,6 +223,10 @@ xk852_set_mode(RIG *rig, vfo_t vfo, rmode_t mode, pbwidth_t width)
         smode = XK852_MODE_CW;
         break;
 
+    case RIG_MODE_RTTY:
+        smode = XK852_MODE_FSK_HP;
+        break;
+
     default:
         return -RIG_EINVAL;
     }
