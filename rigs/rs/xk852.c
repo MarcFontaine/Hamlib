@@ -18,31 +18,6 @@
 #define BOM LF
 #define EOM CR
 
-#define XK852_MODES (RIG_MODE_USB|RIG_MODE_LSB|RIG_MODE_CW|RIG_MODE_AM)
-
-#define XK852_FUNC (RIG_FUNC_NONE)
-
-#define XK852_LEVEL_ALL (RIG_LEVEL_SQL | RIG_LEVEL_RFPOWER)
-
-#define XK852_PARM_ALL (RIG_PARM_NONE)
-
-#define XK852_VFO (RIG_VFO_A)
-
-#define XK852_VFO_OPS (RIG_OP_NONE)
-
-#define XK852_ANTS (RIG_ANT_1)
-
-#define XK852_MEM_CAP {    \
-        .freq = 1,      \
-        .mode = 1,      \
-        .width = 1,     \
-        .ant = 1,     \
-        .funcs = XK852_FUNC, \
-        .levels = RIG_LEVEL_SET(XK852_LEVEL_ALL), \
-        .channel_desc=1, \
-        .flags = RIG_CHFLAG_SKIP, \
-}
-
 int
 xk852_transaction(RIG *rig, const char *cmd, int cmd_len, char *data,
                   int *data_len)
