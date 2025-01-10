@@ -440,9 +440,7 @@ struct rig_caps xk852_caps =
     .copyright = "LGPL",
     .status = RIG_STATUS_ALPHA,
     .rig_type = RIG_TYPE_TRANSCEIVER,
-    .ptt_type = RIG_PTT_RIG,
-    // Need to set RTS on for some reason
-    // And HANDSHAKE_NONE even though HARDWARE is what is called for
+    .ptt_type = XK852_PTT,
     .dcd_type = RIG_DCD_NONE,
     .port_type = RIG_PORT_SERIAL,
     .serial_rate_min = 9600,
@@ -452,7 +450,7 @@ struct rig_caps xk852_caps =
     .serial_parity = RIG_PARITY_EVEN,
     .serial_handshake = RIG_HANDSHAKE_NONE,
     .write_delay = 0,
-    .post_write_delay = 200, //nach senden warten // also see post_ptt_delay (in manpage)
+    .post_write_delay = 200, // also see post_ptt_delay (in manpage)
     .timeout = 200,
     .retry = 3,
     .has_get_func = XK852_FUNC,
@@ -501,21 +499,10 @@ struct rig_caps xk852_caps =
         RIG_TS_END,
     },
 
-    /* mode/filter list, remember: order matters! */
     .filters = {
-        {RIG_MODE_WFM, kHz(150)},
-        {RIG_MODE_FM | RIG_MODE_AM, kHz(15)},
-        {XK852_MODES, kHz(2.4)},
-        {XK852_MODES, kHz(1.5)},
         {XK852_MODES, Hz(150)},
         {XK852_MODES, Hz(300)},
-        {XK852_MODES, Hz(600)},
-        {XK852_MODES, kHz(6)},
-        {XK852_MODES, kHz(9)},
-        {XK852_MODES, kHz(15)},
-        {XK852_MODES, kHz(30)},
-        {XK852_MODES, kHz(50)},
-        {XK852_MODES, kHz(120)},
+        {XK852_MODES, Hz(3100)},
         RIG_FLT_END,
     },
     .priv = NULL,

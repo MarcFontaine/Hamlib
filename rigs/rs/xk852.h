@@ -102,7 +102,7 @@ int xk852_get_level(RIG *rig, vfo_t vfo, setting_t level, value_t *val);
 int xk852_reset(RIG *rig, reset_t reset);
 //const char * xk852_get_info(RIG *rig);
 
-#define XK852_MODES (RIG_MODE_USB|RIG_MODE_LSB|RIG_MODE_CW|RIG_MODE_AM)
+#define XK852_MODES (RIG_MODE_USB | RIG_MODE_LSB | RIG_MODE_CW |RIG_MODE_AM |RIG_MODE_RTTY | RIG_MODE_ISBUSB | RIG_MODE_ISBLSB)
 
 #define XK852_FUNC (RIG_FUNC_NONE)
 
@@ -115,6 +115,10 @@ int xk852_reset(RIG *rig, reset_t reset);
 #define XK852_VFO_OPS (RIG_OP_NONE)
 
 #define XK852_ANTS (RIG_ANT_1)
+
+// RIG_PTT_SERIAL_DTR and RIG_PTT_SERIAL_RTS rely on appropriate wiring.
+//#define XK852_PTT (RIG_PTT_RIG | RIG_PTT_SERIAL_DTR | RIG_PTT_SERIAL_RTS)
+#define XK852_PTT (RIG_PTT_RIG)
 
 #define XK852_MEM_CAP {    \
         .freq = 1,      \
